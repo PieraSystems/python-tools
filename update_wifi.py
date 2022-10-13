@@ -20,12 +20,14 @@ def serial_thread(port_name):
     confirm_ssid = False
     confirm_pwd = False
     serial_con = serial_helper.open_port(port_name)
+    # Wait for boot up
     time.sleep(3)
     serial_con.write((f'$Wssid={wifi_ssid}\r\n').encode())
     time.sleep(1)
     serial_con.write((f'$Wpwd={wifi_pwd}\r\n').encode())
     time.sleep(1)
     serial_con.write(('$Wreset=1\r\n').encode())
+    # Wait for restart
     time.sleep(2)
     serial_con.write(('$Dflash=\r\n').encode())
     while 1:
