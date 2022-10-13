@@ -11,7 +11,7 @@ Monitor sensor output and send commands:
 python monitor.py
 ```
 
-Update WiFi settings, you can edit *wifi_ssid* and *wifi_pwd* in **update_wifi.py**:
+Update WiFi settings, you can edit **wifi_ssid** and **wifi_pwd** in *update_wifi.py*:
 ```
 python update_wifi.py
 ```
@@ -22,7 +22,7 @@ python logger.py
 ```
 
 ## Tips
-See update_wifi.py for an example of how to use threading so you can communicate with multiple sensors at the same time.
+See *update_wifi.py* for an example of how to use threading so you can communicate with multiple sensors at the same time.
 
 You can send UART commands to a sensor like this:
 ```
