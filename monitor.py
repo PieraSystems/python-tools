@@ -20,24 +20,29 @@ def main():
 
     input_helper.input_init()
 
-    while (True):
-        try:
-            input_str = input_helper.check_input()
-        except KeyboardInterrupt:
-            input_helper.input_deinit()
-            sys.exit()
-        if input_str:
-            if (input_str == EXIT_COMMAND):
-                print("Exiting serial monitor.")
-                break
-            else:
-                serial_con.write((input_str + "\r\n").encode())
-        
-        # Check input buffer
-        if serial_con.in_waiting:
-            line = serial_helper.read_line(serial_con)
-            print(line)
-        time.sleep(0.01) 
+    try:
+        while (True):
+            try:
+                input_str = input_helper.check_input()
+            except KeyboardInterrupt:
+                input_helper.input_deinit()
+                sys.exit()
+            if input_str:
+                if (input_str == EXIT_COMMAND):
+                    print("Exiting serial monitor.")
+                    break
+                else:
+                    serial_con.write((input_str + "\r\n").encode())
+            
+            # Check input buffer
+            if serial_con.in_waiting:
+                line = serial_helper.read_line(serial_con)
+                print(line)
+            time.sleep(0.01) 
+    except KeyboardInterrupt:
+        print("hey")
+        input_helper.input_deinit()
+        sys.exit()
     
     input_helper.input_deinit()
 
