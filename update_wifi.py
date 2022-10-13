@@ -62,22 +62,26 @@ def main():
     print("")
     print("Please wait, this will take about 10 seconds...")
 
-    while True:
-        try:
-            input_str = input_helper.check_input()
-        except KeyboardInterrupt:
-            input_helper.input_deinit()
-            sys.exit()
-        if input_str:
-            if (input_str == EXIT_COMMAND):
-                print("Exiting serial monitor.")
-                break
-        if len(threading.enumerate()) <= 2:
-            print("")
-            print("Finished, if there were any errors they will be displayed above.")
-            input_helper.input_deinit()
-            sys.exit()
-        time.sleep(0.1)
+    try:
+        while True:
+            try:
+                input_str = input_helper.check_input()
+            except KeyboardInterrupt:
+                input_helper.input_deinit()
+                sys.exit()
+            if input_str:
+                if (input_str == EXIT_COMMAND):
+                    print("Exiting serial monitor.")
+                    break
+            if len(threading.enumerate()) <= 2:
+                print("")
+                print("Finished, if there were any errors they will be displayed above.")
+                input_helper.input_deinit()
+                sys.exit()
+            time.sleep(0.1)
+    except KeyboardInterrupt:
+        input_helper.input_deinit()
+        sys.exit()
     
 
 if (__name__ == '__main__'): 

@@ -40,7 +40,6 @@ def main():
                 print(line)
             time.sleep(0.01) 
     except KeyboardInterrupt:
-        print("hey")
         input_helper.input_deinit()
         sys.exit()
     
