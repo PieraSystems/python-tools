@@ -66,6 +66,7 @@ def main():
         try:
             input_str = input_helper.check_input()
         except KeyboardInterrupt:
+            input_helper.input_deinit()
             sys.exit()
         if input_str:
             if (input_str == EXIT_COMMAND):
@@ -74,6 +75,7 @@ def main():
         if len(threading.enumerate()) <= 2:
             print("")
             print("Finished, if there were any errors they will be displayed above.")
+            input_helper.input_deinit()
             sys.exit()
         time.sleep(0.1)
     

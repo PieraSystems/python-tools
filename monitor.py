@@ -24,6 +24,7 @@ def main():
         try:
             input_str = input_helper.check_input()
         except KeyboardInterrupt:
+            input_helper.input_deinit()
             sys.exit()
         if input_str:
             if (input_str == EXIT_COMMAND):
@@ -37,6 +38,8 @@ def main():
             line = serial_helper.read_line(serial_con)
             print(line)
         time.sleep(0.01) 
+    
+    input_helper.input_deinit()
 
 if (__name__ == '__main__'): 
     main()

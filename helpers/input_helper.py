@@ -1,6 +1,7 @@
 import getpass
 import queue
 import threading
+import os
 
 inputQueue = queue.Queue()
 
@@ -23,6 +24,13 @@ def input_init():
 
     inputThread = threading.Thread(target=keyboard_input, args=(inputQueue,), daemon=True)
     inputThread.start()
+
+def input_deinit():
+    """ Disable getpass so commands are echoed in terminal
+
+    """
+    if os.name != "nt":
+        os.system ("stty echo")
 
 def check_input():
     """ Get the latest input
