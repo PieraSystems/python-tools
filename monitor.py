@@ -29,7 +29,7 @@ def main():
                 sys.exit()
             if input_str:
                 if (input_str == EXIT_COMMAND):
-                    print("Exiting serial monitor.")
+                    print("Exiting...")
                     break
                 else:
                     serial_con.write((input_str + "\r\n").encode())
