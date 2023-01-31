@@ -2,7 +2,7 @@
 Collection of Python scripts for interacting with Canaree and IPS sensors.
 
 ## Requirements
-- Python v3.7
+- Python v3.7+
 - pySerial (`pip install pyserial`)
 
 ## Usage
